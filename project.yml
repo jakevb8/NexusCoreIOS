@@ -37,6 +37,8 @@ targets:
         SWIFT_VERSION: 5.9
     dependencies:
       - package: Firebase
+        product: FirebaseCore
+      - package: Firebase
         product: FirebaseAuth
       - package: GoogleSignIn
         product: GoogleSignIn

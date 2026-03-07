@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    name: Build (no signing)
+    runs-on: macos-15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install xcodegen
+        run: brew install xcodegen
+
+      - name: Restore GoogleService-Info.plist
+        run: |
+          printf '%s' "$GOOGLE_SERVICES_B64" | base64 --decode > NexusCoreIOS/GoogleService-Info.plist
+        env:
+          GOOGLE_SERVICES_B64: ${{ secrets.GOOGLE_SERVICES_B64 }}
+
+      - name: Generate Xcode project
+        run: xcodegen generate
+
+      - name: Resolve SPM packages
+        run: |
+          xcodebuild -resolvePackageDependencies \
+            -project NexusCoreIOS.xcodeproj \
+            -scheme NexusCoreIOS
+
+      - name: Build (simulator, no signing)
+        run: |
+          xcodebuild build \
+            -project NexusCoreIOS.xcodeproj \
+            -scheme NexusCoreIOS \
+            -destination "platform=iOS Simulator,name=iPhone 16,OS=latest" \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO \
+            | xcpretty
