@@ -16,9 +16,7 @@ struct PendingApprovalView: View {
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 32)
 
-            NexusButton(title: "Sign Out", isOutlined: true) {
-                authState.signOut()
-            }
+            NexusButton(title: "Sign Out", action: { authState.signOut() }, isOutlined: true)
             .padding(.horizontal, 32)
 
             Spacer()
