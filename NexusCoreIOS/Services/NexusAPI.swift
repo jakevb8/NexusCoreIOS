@@ -10,6 +10,10 @@ struct NexusAPI {
         try await APIClient.shared.post("/auth/register", body: request)
     }
 
+    static func deleteAccount() async throws {
+        try await APIClient.shared.delete("/auth/me")
+    }
+
     // MARK: - Assets
     static func getAssets(page: Int = 1, search: String? = nil) async throws -> PaginatedAssets {
         var path = "/assets?page=\(page)"

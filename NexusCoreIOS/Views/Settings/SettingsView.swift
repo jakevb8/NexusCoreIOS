@@ -9,6 +9,8 @@ struct SettingsView: View {
     @State private var selectedBackend: BackendChoice = BackendPreference.shared.current
     @State private var isLoading = true
     @State private var error: String? = nil
+    @State private var showDeleteConfirm = false
+    @State private var isDeletingAccount = false
 
     var body: some View {
         VStack(spacing: 0) {
@@ -98,6 +100,39 @@ struct SettingsView: View {
                         NexusButton(title: "Sign Out", isOutlined: true) {
                             authState.signOut()
                         }
+
+                        // Danger Zone
+                        Text("DANGER ZONE")
+                            .font(.system(size: 11, weight: .semibold))
+                            .foregroundColor(Theme.error)
+                            .tracking(0.5)
+                            .padding(.top, 8)
+
+                        NexusCard {
+                            VStack(alignment: .leading, spacing: 12) {
+                                Text("Permanently delete your account. If you are the last member of your organization, the organization and all its assets will also be deleted.")
+                                    .font(.system(size: 14))
+                                    .foregroundColor(Theme.textSecondary)
+
+                                Button(action: { showDeleteConfirm = true }) {
+                                    Text("Delete Account")
+                                        .font(.system(size: 15, weight: .semibold))
+                                        .foregroundColor(Theme.error)
+                                        .frame(maxWidth: .infinity)
+                                        .padding(.vertical, 12)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 8)
+                                                .stroke(Theme.error, lineWidth: 1.5)
+                                        )
+                                }
+                                .buttonStyle(.plain)
+                            }
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        }
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 12)
+                                .stroke(Theme.error, lineWidth: 1)
+                        )
                     }
                     .padding(16)
                 }
@@ -106,6 +141,14 @@ struct SettingsView: View {
         .background(Theme.background.ignoresSafeArea())
         .navigationBarHidden(true)
         .onAppear { Task { await load() } }
+        .alert("Delete Account?", isPresented: $showDeleteConfirm) {
+            Button("Cancel", role: .cancel) {}
+            Button("Delete", role: .destructive) {
+                Task { await performDeleteAccount() }
+            }
+        } message: {
+            Text("This will permanently delete your profile, and your organization with all its assets if you are the last member. This cannot be undone.")
+        }
     }
 
     private func load() async {
@@ -122,6 +165,21 @@ struct SettingsView: View {
             await MainActor.run {
                 self.error = (error as? APIError)?.errorDescription ?? error.localizedDescription
                 isLoading = false
+            }
+        }
+    }
+
+    private func performDeleteAccount() async {
+        await MainActor.run { isDeletingAccount = true }
+        do {
+            try await NexusAPI.deleteAccount()
+            APIClient.reset()
+            authState.signOut()
+        } catch {
+            print("[Settings] deleteAccount failed: \(error)")
+            await MainActor.run {
+                self.error = (error as? APIError)?.errorDescription ?? error.localizedDescription
+                isDeletingAccount = false
             }
         }
     }
