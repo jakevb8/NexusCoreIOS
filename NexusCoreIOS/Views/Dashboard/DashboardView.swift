@@ -8,7 +8,6 @@ struct DashboardView: View {
         ("Assets", "Manage your organization's assets", .assets),
         ("Team", "Manage members and invitations", .team),
         ("Reports", "View utilization analytics", .reports),
-        ("Events", "Browse Kafka asset status change history", .events),
         ("Settings", "Backend and account settings", .settings),
     ]
 
