@@ -60,6 +60,7 @@
 		63303E7889AC14203863AF9C /* ReportsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsView.swift; sourceTree = "<group>"; };
 		809A961BCCD7548E7D61A47D /* NexusCoreIOS.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = NexusCoreIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8516C0BF9CFF6AB0D4B115F6 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		85247F3AD705219DDCF9D8B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9483325ADB46619B3480F185 /* MainNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationView.swift; sourceTree = "<group>"; };
 		975ECDFE96E0CC1D217E2C29 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
 		ABFE20B863B85D0450640833 /* AssetDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetDetailView.swift; sourceTree = "<group>"; };
@@ -144,6 +145,7 @@
 		8EA68FDF21F0B9C1CCACA9EF /* NexusCoreIOSTests */ = {
 			isa = PBXGroup;
 			children = (
+				85247F3AD705219DDCF9D8B3 /* Info.plist */,
 				067DBBCB410D914F3005AC9D /* ModelsTests.swift */,
 			);
 			path = NexusCoreIOSTests;
@@ -286,6 +288,10 @@
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					4D6B393E8166EC309D0DABF7 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+					C63DC7ED618F279D08DA5268 = {
 						DevelopmentTeam = "";
 						ProvisioningStyle = Automatic;
 					};
@@ -472,6 +478,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = NexusCoreIOSTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -549,6 +558,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = NexusCoreIOSTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

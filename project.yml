@@ -71,5 +71,14 @@ targets:
       base:
         SWIFT_VERSION: 5.9
         PRODUCT_BUNDLE_IDENTIFIER: me.jakev.nexuscore.tests
+        CODE_SIGN_STYLE: Automatic
+        DEVELOPMENT_TEAM: ""
+    info:
+      path: NexusCoreIOSTests/Info.plist
+      properties:
+        CFBundleName: NexusCoreIOSTests
+        CFBundleIdentifier: me.jakev.nexuscore.tests
+        CFBundleVersion: "1"
+        CFBundleShortVersionString: "1.0"
     dependencies:
       - target: NexusCoreIOS
