@@ -152,3 +152,5 @@ In `project.yml` (and regenerated `Info.plist`):
 - **`CFBundleURLSchemes`** must contain the `REVERSED_CLIENT_ID` from `GoogleService-Info.plist` for Google Sign-In callback to work.
 - **Google Sign-In flow**: `GIDSignIn.sharedInstance.signIn(withPresenting: rootVC)` → `GoogleAuthProvider.credential(withIDToken:accessToken:)` → `Auth.auth().signIn(with:)`. The Firebase auth state listener in `AuthState` drives navigation automatically.
 - **Deployment target**: iOS 16.0 minimum (required for `NavigationStack` + `NavigationPath`).
+- After completing any task that modifies files, always commit and push to the current branch without asking for confirmation.
+- **README maintenance**: After any feature addition, removal, or significant change, update `README.md` in every affected repo to reflect the current feature set, API table, tech stack, and test count. The READMEs are the public-facing source of truth and must not fall behind the code.
