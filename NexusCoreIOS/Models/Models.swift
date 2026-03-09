@@ -137,3 +137,36 @@ struct CreateAssetRequest: Codable {
 struct UpdateRoleRequest: Codable {
     let role: Role
 }
+
+// MARK: - Events
+
+struct KafkaEvent: Codable, Identifiable {
+    let id: String
+    let organizationId: String
+    let assetId: String?
+    let assetName: String?
+    let previousStatus: String?
+    let newStatus: String?
+    let actorId: String?
+    let occurredAt: String
+    let createdAt: String
+}
+
+struct PaginatedEvents: Codable {
+    let data: [KafkaEvent]
+    // .NET flat fields
+    let total: Int?
+    let page: Int?
+    let perPage: Int?
+    // JS nested meta
+    let meta: PaginatedMeta?
+
+    func resolvedTotal() -> Int { meta?.total ?? total ?? 0 }
+    func resolvedPage() -> Int { meta?.page ?? page ?? 1 }
+}
+
+struct PaginatedMeta: Codable {
+    let total: Int?
+    let page: Int?
+    let perPage: Int?
+}
