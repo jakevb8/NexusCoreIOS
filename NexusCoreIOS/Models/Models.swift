@@ -120,10 +120,9 @@ struct CsvImportResult: Codable {
 // MARK: - Request Models
 
 struct RegisterRequest: Codable {
-    let firebaseToken: String
-    let orgName: String
-    let name: String
-    let email: String
+    let organizationName: String
+    let organizationSlug: String
+    let displayName: String?
 }
 
 struct CreateAssetRequest: Codable {
