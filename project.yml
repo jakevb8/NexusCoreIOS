@@ -60,3 +60,16 @@ targets:
           - CFBundleURLSchemes:
               - PLACEHOLDER_REVERSED_CLIENT_ID
         GIDClientID: PLACEHOLDER_CLIENT_ID
+
+  NexusCoreIOSTests:
+    type: bundle.unit-test
+    platform: iOS
+    deploymentTarget: "16.0"
+    sources:
+      - NexusCoreIOSTests
+    settings:
+      base:
+        SWIFT_VERSION: 5.9
+        PRODUCT_BUNDLE_IDENTIFIER: me.jakev.nexuscore.tests
+    dependencies:
+      - target: NexusCoreIOS

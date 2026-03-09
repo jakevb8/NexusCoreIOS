@@ -105,9 +105,38 @@ NexusCoreIOS/
 │       │   └── TeamView.swift
 │       ├── Reports/
 │       │   └── ReportsView.swift
+│       ├── Events/
+│       │   └── EventsView.swift
 │       └── Settings/
 │           └── SettingsView.swift
+└── NexusCoreIOSTests/
+    └── ModelsTests.swift               — XCTest unit tests for models, enums, decoders
 ```
+
+## Unit Tests
+
+The project has an `NexusCoreIOSTests` unit test target. Tests live in `NexusCoreIOSTests/` and are run from Xcode (Product → Test, or `⌘U`) or via `xcodebuild`:
+
+```bash
+# Run tests from command line (requires Xcode + simulator)
+xcodebuild test \
+  -project NexusCoreIOS.xcodeproj \
+  -scheme NexusCoreIOSTests \
+  -destination 'platform=iOS Simulator,name=iPhone 16'
+```
+
+**What is tested** (`ModelsTests.swift`):
+- `AssetStatus` raw values, display names, colors, `CaseIterable` count, `Decodable`
+- `Role` raw values and `CaseIterable` count
+- `BackendChoice` base URLs and labels
+- `PaginatedEvents` resolving JS meta vs .NET flat fields and empty defaults
+- `KafkaEvent` JSON decoding
+- `Asset` JSON decoding
+
+**Rules for new tests:**
+- Keep tests in `NexusCoreIOSTests/` — one file per logical domain.
+- Tests must not import Firebase (it is not linked to the test target). Test only pure Swift model/logic code.
+- After adding tests, always run `xcodegen generate` if you added a new source file to the test target.
 
 ## Key Architecture Decisions
 

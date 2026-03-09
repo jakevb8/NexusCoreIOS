@@ -10,6 +10,7 @@
 		0426236DAFC64F7C1DEEE0B3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117D0209D79E5F2861AE092F /* ContentView.swift */; };
 		151A530D9A7323ACD0EDCF0E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5CC797CAED08CDA87D7BBD /* SettingsView.swift */; };
 		153D10421130E0C2317EAAD4 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6C7602E4BDA4FBC89E8692 /* LoginView.swift */; };
+		20A5DF623E2B75318A0F6CB7 /* ModelsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DBBCB410D914F3005AC9D /* ModelsTests.swift */; };
 		2251BC6FA5D60DC830AFB06F /* TeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31F06F7286532D2D4969A8D /* TeamView.swift */; };
 		27689BBEA1D9811613B151A2 /* MainNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9483325ADB46619B3480F185 /* MainNavigationView.swift */; };
 		2FCA11C4C56C5E7A4DA47DCE /* AssetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4067040B197D7C2CAFC514F5 /* AssetsView.swift */; };
@@ -20,8 +21,10 @@
 		4E0F046D78B234FDEFDC13CB /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8516C0BF9CFF6AB0D4B115F6 /* Theme.swift */; };
 		50FF67925941D3234795A596 /* NexusAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E281B3CB2CF56FED1F097C /* NexusAPI.swift */; };
 		5ADB12FF6C3EF6BF9E96DD29 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2924DCDD9932DBD1D7689E /* APIClient.swift */; };
-		9EDBFC1CDF15EBFBC52E342A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FDB42EBDB941E65AD9014512 /* FirebaseAuth */; };
-		A08284356BB665C75FD0FFF1 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 215C51273A2CC8BFD001724A /* GoogleSignIn */; };
+		77D651AA8C728189391CD633 /* EventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6647164985894A94078D955 /* EventsView.swift */; };
+		806220A82B9EDFC05B3D122F /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 215C51273A2CC8BFD001724A /* GoogleSignIn */; };
+		9EDBFC1CDF15EBFBC52E342A /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 2ECB48C4C365EE4A6DCC3039 /* FirebaseCore */; };
+		A08284356BB665C75FD0FFF1 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FDB42EBDB941E65AD9014512 /* FirebaseAuth */; };
 		C0281DCE5AF181E423810E28 /* ReportsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63303E7889AC14203863AF9C /* ReportsView.swift */; };
 		C8ACA519C0CF33937505286E /* PendingApprovalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6CCE28DBEA1B0948B525EE /* PendingApprovalView.swift */; };
 		E08AE949C17664167618BECE /* BackendPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628A83B58EC643A8648EDBC7 /* BackendPreference.swift */; };
@@ -30,8 +33,19 @@
 		FC56D92E912ADFEBD5D6CCCC /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975ECDFE96E0CC1D217E2C29 /* Components.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		3C5C95FCA96A987AFFBC3937 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6D5E98125F8A95E91CAF65AE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4D6B393E8166EC309D0DABF7;
+			remoteInfo = NexusCoreIOS;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		05E281B3CB2CF56FED1F097C /* NexusAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NexusAPI.swift; sourceTree = "<group>"; };
+		067DBBCB410D914F3005AC9D /* ModelsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsTests.swift; sourceTree = "<group>"; };
 		0D5CC797CAED08CDA87D7BBD /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		117D0209D79E5F2861AE092F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		11AA5C468AE1BABE332ED4B9 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
@@ -49,7 +63,9 @@
 		9483325ADB46619B3480F185 /* MainNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationView.swift; sourceTree = "<group>"; };
 		975ECDFE96E0CC1D217E2C29 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
 		ABFE20B863B85D0450640833 /* AssetDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetDetailView.swift; sourceTree = "<group>"; };
+		AC5C968A7D6A6B3DC2BED1ED /* NexusCoreIOSTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = NexusCoreIOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA6C7602E4BDA4FBC89E8692 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		E6647164985894A94078D955 /* EventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsView.swift; sourceTree = "<group>"; };
 		F31F06F7286532D2D4969A8D /* TeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamView.swift; sourceTree = "<group>"; };
 		F5C84E47321A8E10E2643802 /* AuthState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -59,8 +75,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9EDBFC1CDF15EBFBC52E342A /* FirebaseAuth in Frameworks */,
-				A08284356BB665C75FD0FFF1 /* GoogleSignIn in Frameworks */,
+				9EDBFC1CDF15EBFBC52E342A /* FirebaseCore in Frameworks */,
+				A08284356BB665C75FD0FFF1 /* FirebaseAuth in Frameworks */,
+				806220A82B9EDFC05B3D122F /* GoogleSignIn in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				7D3D4EFF63680C5FE413B364 /* NexusCoreIOS */,
+				8EA68FDF21F0B9C1CCACA9EF /* NexusCoreIOSTests */,
 				D3F08669C8993A4F66FA5647 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -99,6 +117,14 @@
 				2B56F13D2CCD86E985507165 /* Models.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		79D02DBDF54735C041C6BA1A /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				E6647164985894A94078D955 /* EventsView.swift */,
+			);
+			path = Events;
 			sourceTree = "<group>";
 		};
 		7D3D4EFF63680C5FE413B364 /* NexusCoreIOS */ = {
@@ -113,6 +139,14 @@
 				CD8EF6B50FFB09195B2FE420 /* Views */,
 			);
 			path = NexusCoreIOS;
+			sourceTree = "<group>";
+		};
+		8EA68FDF21F0B9C1CCACA9EF /* NexusCoreIOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				067DBBCB410D914F3005AC9D /* ModelsTests.swift */,
+			);
+			path = NexusCoreIOSTests;
 			sourceTree = "<group>";
 		};
 		98E9B45988394C67C9F6373C /* Navigation */ = {
@@ -157,6 +191,7 @@
 				8516C0BF9CFF6AB0D4B115F6 /* Theme.swift */,
 				B8FF1221127EC49768811F63 /* Assets */,
 				CEE4B89E2C067BB1CEA2DD25 /* Dashboard */,
+				79D02DBDF54735C041C6BA1A /* Events */,
 				BB1E01ECF798D5890A7AB8A0 /* Login */,
 				98E9B45988394C67C9F6373C /* Navigation */,
 				4B42B242F37C889C67F7DF93 /* Reports */,
@@ -186,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				809A961BCCD7548E7D61A47D /* NexusCoreIOS.app */,
+				AC5C968A7D6A6B3DC2BED1ED /* NexusCoreIOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -214,12 +250,31 @@
 			);
 			name = NexusCoreIOS;
 			packageProductDependencies = (
+				2ECB48C4C365EE4A6DCC3039 /* FirebaseCore */,
 				FDB42EBDB941E65AD9014512 /* FirebaseAuth */,
 				215C51273A2CC8BFD001724A /* GoogleSignIn */,
 			);
 			productName = NexusCoreIOS;
 			productReference = 809A961BCCD7548E7D61A47D /* NexusCoreIOS.app */;
 			productType = "com.apple.product-type.application";
+		};
+		C63DC7ED618F279D08DA5268 /* NexusCoreIOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E3A788BA6143673E8BD7F7C /* Build configuration list for PBXNativeTarget "NexusCoreIOSTests" */;
+			buildPhases = (
+				B5049DB62B53ECEFC66ABE06 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				50516AC82FFA5A63431D35D1 /* PBXTargetDependency */,
+			);
+			name = NexusCoreIOSTests;
+			packageProductDependencies = (
+			);
+			productName = NexusCoreIOSTests;
+			productReference = AC5C968A7D6A6B3DC2BED1ED /* NexusCoreIOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -255,6 +310,7 @@
 			projectRoot = "";
 			targets = (
 				4D6B393E8166EC309D0DABF7 /* NexusCoreIOS */,
+				C63DC7ED618F279D08DA5268 /* NexusCoreIOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -272,6 +328,7 @@
 				FC56D92E912ADFEBD5D6CCCC /* Components.swift in Sources */,
 				0426236DAFC64F7C1DEEE0B3 /* ContentView.swift in Sources */,
 				476F792850ADF08658E9EA88 /* DashboardView.swift in Sources */,
+				77D651AA8C728189391CD633 /* EventsView.swift in Sources */,
 				153D10421130E0C2317EAAD4 /* LoginView.swift in Sources */,
 				27689BBEA1D9811613B151A2 /* MainNavigationView.swift in Sources */,
 				34E2BBD40A6883BC7C75D3AE /* Models.swift in Sources */,
@@ -286,7 +343,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B5049DB62B53ECEFC66ABE06 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				20A5DF623E2B75318A0F6CB7 /* ModelsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		50516AC82FFA5A63431D35D1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4D6B393E8166EC309D0DABF7 /* NexusCoreIOS */;
+			targetProxy = 3C5C95FCA96A987AFFBC3937 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		3857F7D6EDC7729A404DB325 /* Debug */ = {
@@ -395,6 +468,24 @@
 			};
 			name = Release;
 		};
+		CBE2F5A83933FEEC6C77A575 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.jakev.nexuscore.tests;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NexusCoreIOS.app/NexusCoreIOS";
+			};
+			name = Release;
+		};
 		F0F676E482ADCB75EDB63AD0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -454,6 +545,24 @@
 			};
 			name = Release;
 		};
+		FEE8570AAC326C5D08029626 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.jakev.nexuscore.tests;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NexusCoreIOS.app/NexusCoreIOS";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -462,6 +571,15 @@
 			buildConfigurations = (
 				3857F7D6EDC7729A404DB325 /* Debug */,
 				F0F676E482ADCB75EDB63AD0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		2E3A788BA6143673E8BD7F7C /* Build configuration list for PBXNativeTarget "NexusCoreIOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FEE8570AAC326C5D08029626 /* Debug */,
+				CBE2F5A83933FEEC6C77A575 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
@@ -501,6 +619,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5FAB1E61A7352333D478FC07 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
 			productName = GoogleSignIn;
+		};
+		2ECB48C4C365EE4A6DCC3039 /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3E0B425656558F57C2D5E23C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
 		};
 		FDB42EBDB941E65AD9014512 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
