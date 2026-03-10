@@ -88,9 +88,9 @@ struct TeamView: View {
                     ForEach(members) { member in
                         HStack {
                             VStack(alignment: .leading, spacing: 2) {
-                                Text(member.name ?? member.email)
+                                Text(member.displayName ?? member.email)
                                     .font(.system(size: 16, weight: .medium))
-                                if member.name != nil {
+                                if member.displayName != nil {
                                     Text(member.email)
                                         .font(.system(size: 12))
                                         .foregroundColor(Theme.textSecondary)
@@ -149,7 +149,7 @@ struct TeamView: View {
             Button("Cancel", role: .cancel) { removeTarget = nil }
         } message: {
             if let m = removeTarget {
-                Text("\(m.name ?? m.email) will be removed from the organization.")
+                Text("\(m.displayName ?? m.email) will be removed from the organization.")
             }
         }
     }
@@ -241,7 +241,7 @@ struct TeamView: View {
     private func removeMember(_ member: TeamMember) async {
         do {
             try await NexusAPI.removeMember(id: member.id)
-            await MainActor.run { successMessage = "\(member.name ?? member.email) removed" }
+            await MainActor.run { successMessage = "\(member.displayName ?? member.email) removed" }
             await load()
         } catch {
             await MainActor.run {

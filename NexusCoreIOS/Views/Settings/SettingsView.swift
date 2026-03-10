@@ -65,7 +65,7 @@ struct SettingsView: View {
                 .tracking(0.5)
             NexusCard {
                 VStack(alignment: .leading, spacing: 6) {
-                    Text(me?.name ?? me?.email ?? "")
+                    Text(me?.displayName ?? me?.email ?? "")
                         .font(.system(size: 16, weight: .semibold))
                     if let email = me?.email {
                         Text(email)

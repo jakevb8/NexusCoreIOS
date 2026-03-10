@@ -72,7 +72,7 @@ struct NexusAPI {
 
     // MARK: - Reports
     static func getReports() async throws -> ReportsData {
-        try await APIClient.shared.get("/reports")
+        try await APIClient.shared.get("/reports/stats")
     }
 
     // MARK: - Events

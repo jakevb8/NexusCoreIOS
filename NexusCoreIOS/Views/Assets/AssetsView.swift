@@ -203,7 +203,7 @@ struct AssetsView: View {
             let (result, me) = try await (assetsTask, meTask)
             await MainActor.run {
                 assets = result.data
-                total = result.total
+                total = result.resolvedTotal()
                 isManager = me.role == .orgManager || me.role == .superadmin
                 isLoading = false
             }

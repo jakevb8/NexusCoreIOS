@@ -62,10 +62,22 @@ enum BackendChoice: String, CaseIterable {
 struct AuthUser: Codable {
     let id: String
     let email: String
-    let name: String?
+    let displayName: String?
     let role: Role
     let organizationId: String
-    let orgStatus: OrgStatus
+    let organization: AuthUserOrganization?
+
+    // Convenience: org status lives inside the nested organization object
+    var orgStatus: OrgStatus {
+        guard let status = organization?.status else { return .pending }
+        return OrgStatus(rawValue: status) ?? .pending
+    }
+}
+
+struct AuthUserOrganization: Codable {
+    let id: String
+    let name: String
+    let status: String
 }
 
 struct Asset: Codable, Identifiable {
@@ -82,15 +94,21 @@ struct Asset: Codable, Identifiable {
 
 struct PaginatedAssets: Codable {
     let data: [Asset]
-    let total: Int
-    let page: Int
-    let perPage: Int
+    // .NET flat fields
+    let total: Int?
+    let page: Int?
+    let perPage: Int?
+    // JS nested meta
+    let meta: PaginatedMeta?
+
+    func resolvedTotal() -> Int { meta?.total ?? total ?? 0 }
+    func resolvedPage() -> Int { meta?.page ?? page ?? 1 }
 }
 
 struct TeamMember: Codable, Identifiable {
     let id: String
     let email: String
-    let name: String?
+    let displayName: String?
     let role: Role
     let createdAt: String
 }
