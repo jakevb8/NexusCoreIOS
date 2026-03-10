@@ -23,6 +23,7 @@
 		5ADB12FF6C3EF6BF9E96DD29 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2924DCDD9932DBD1D7689E /* APIClient.swift */; };
 		77D651AA8C728189391CD633 /* EventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6647164985894A94078D955 /* EventsView.swift */; };
 		806220A82B9EDFC05B3D122F /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 215C51273A2CC8BFD001724A /* GoogleSignIn */; };
+		9A8619CB480811DFFC4F3122 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B81987C0B519530395C66DDA /* GoogleService-Info.plist */; };
 		9EDBFC1CDF15EBFBC52E342A /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 2ECB48C4C365EE4A6DCC3039 /* FirebaseCore */; };
 		A08284356BB665C75FD0FFF1 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FDB42EBDB941E65AD9014512 /* FirebaseAuth */; };
 		C0281DCE5AF181E423810E28 /* ReportsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63303E7889AC14203863AF9C /* ReportsView.swift */; };
@@ -65,6 +66,7 @@
 		975ECDFE96E0CC1D217E2C29 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
 		ABFE20B863B85D0450640833 /* AssetDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetDetailView.swift; sourceTree = "<group>"; };
 		AC5C968A7D6A6B3DC2BED1ED /* NexusCoreIOSTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = NexusCoreIOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B81987C0B519530395C66DDA /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DA6C7602E4BDA4FBC89E8692 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		E6647164985894A94078D955 /* EventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsView.swift; sourceTree = "<group>"; };
 		F31F06F7286532D2D4969A8D /* TeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamView.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				117D0209D79E5F2861AE092F /* ContentView.swift */,
+				B81987C0B519530395C66DDA /* GoogleService-Info.plist */,
 				4B057D7DCBD612CD2FA73E96 /* Info.plist */,
 				12C080F7A80BFF8BA97F66A9 /* NexusCoreIOSApp.swift */,
 				C40BBD3EEDA2AC005FEE2B3B /* Auth */,
@@ -244,6 +247,7 @@
 			buildConfigurationList = 59DA5298FC2C9229BE34E666 /* Build configuration list for PBXNativeTarget "NexusCoreIOS" */;
 			buildPhases = (
 				66D9CEB3998F254266903A90 /* Sources */,
+				600F6ED191CD567DA36D3857 /* Resources */,
 				A8B00572CC054995A61D05A8 /* Frameworks */,
 			);
 			buildRules = (
@@ -320,6 +324,17 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		600F6ED191CD567DA36D3857 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A8619CB480811DFFC4F3122 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		66D9CEB3998F254266903A90 /* Sources */ = {

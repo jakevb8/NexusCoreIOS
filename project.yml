@@ -58,8 +58,8 @@ targets:
         NSCameraUsageDescription: ""
         CFBundleURLTypes:
           - CFBundleURLSchemes:
-              - PLACEHOLDER_REVERSED_CLIENT_ID
-        GIDClientID: PLACEHOLDER_CLIENT_ID
+              - com.googleusercontent.apps.797114794124-rg008tdv36l4u8aa0sq9esvagmo48kin
+        GIDClientID: 797114794124-rg008tdv36l4u8aa0sq9esvagmo48kin.apps.googleusercontent.com
 
   NexusCoreIOSTests:
     type: bundle.unit-test
