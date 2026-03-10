@@ -241,20 +241,14 @@ struct AssetsView: View {
     }
 
     private func downloadSample() async {
-        do {
-            let data = try await NexusAPI.downloadSampleCsv()
-            await MainActor.run {
-                let tmpURL = FileManager.default.temporaryDirectory.appendingPathComponent("nexuscore_sample.csv")
-                try? data.write(to: tmpURL)
-                let av = UIActivityViewController(activityItems: [tmpURL], applicationActivities: nil)
-                if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-                   let vc = scene.windows.first?.rootViewController {
-                    vc.present(av, animated: true)
-                }
-            }
-        } catch {
-            await MainActor.run {
-                self.error = "Failed to download sample CSV"
+        await MainActor.run {
+            let csv = "Name,SKU,Description,Status\nLaptop,LAP-001,MacBook Pro 14,AVAILABLE\nMonitor,MON-001,Dell 27\" 4K,IN_USE\n"
+            let tmpURL = FileManager.default.temporaryDirectory.appendingPathComponent("nexuscore_sample.csv")
+            try? csv.data(using: .utf8)?.write(to: tmpURL)
+            let av = UIActivityViewController(activityItems: [tmpURL], applicationActivities: nil)
+            if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+               let vc = scene.windows.first?.rootViewController {
+                vc.present(av, animated: true)
             }
         }
     }

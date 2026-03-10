@@ -125,7 +125,26 @@ struct StatusBreakdownItem: Codable {
 struct ReportsData: Codable {
     let totalAssets: Int
     let utilizationRate: Double
-    let byStatus: [StatusBreakdownItem]
+    let totalUsers: Int?
+    // JS API returns {"AVAILABLE":0,"IN_USE":1,...}, .NET may return an array
+    let byStatus: [String: Int]?
+    let byStatusArray: [StatusBreakdownItem]?
+
+    // Decode from either shape
+    enum CodingKeys: String, CodingKey {
+        case totalAssets, utilizationRate, totalUsers, byStatus, byStatusArray
+    }
+
+    // Resolved ordered array usable by the view
+    func resolvedByStatus() -> [StatusBreakdownItem] {
+        if let dict = byStatus {
+            return AssetStatus.allCases.compactMap { status in
+                guard let count = dict[status.rawValue] else { return nil }
+                return StatusBreakdownItem(status: status, count: count)
+            }
+        }
+        return byStatusArray ?? []
+    }
 }
 
 struct CsvImportResult: Codable {

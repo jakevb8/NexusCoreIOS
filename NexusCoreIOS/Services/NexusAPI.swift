@@ -40,16 +40,12 @@ struct NexusAPI {
 
     static func importCsv(data: Data, fileName: String) async throws -> CsvImportResult {
         try await APIClient.shared.postMultipart(
-            "/assets/import",
+            "/assets/import/csv",
             fileData: data,
             fileName: fileName,
             mimeType: "text/csv",
             fieldName: "file"
         )
-    }
-
-    static func downloadSampleCsv() async throws -> Data {
-        try await APIClient.shared.downloadData("/assets/sample-csv")
     }
 
     // MARK: - Team

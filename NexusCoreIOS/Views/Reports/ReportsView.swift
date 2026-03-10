@@ -43,7 +43,7 @@ struct ReportsView: View {
                                     Text("Utilization")
                                         .font(.system(size: 12))
                                         .foregroundColor(Theme.textSecondary)
-                                    Text("\(Int((data.utilizationRate * 100).rounded()))%")
+                                    Text("\(Int(data.utilizationRate.rounded()))%")
                                         .font(.system(size: 28, weight: .bold))
                                         .foregroundColor(Theme.primary)
                                 }
@@ -55,8 +55,8 @@ struct ReportsView: View {
                             .font(.system(size: 16, weight: .semibold))
                             .padding(.top, 8)
 
-                        let maxCount = data.byStatus.map(\.count).max() ?? 1
-                        ForEach(data.byStatus, id: \.status) { item in
+                        let maxCount = data.resolvedByStatus().map(\.count).max() ?? 1
+                        ForEach(data.resolvedByStatus(), id: \.status) { item in
                             NexusCard {
                                 VStack(alignment: .leading, spacing: 8) {
                                     HStack {
