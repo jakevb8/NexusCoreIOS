@@ -288,11 +288,11 @@
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					4D6B393E8166EC309D0DABF7 = {
-						DevelopmentTeam = "";
+						DevelopmentTeam = G7XSDHT6NG;
 						ProvisioningStyle = Automatic;
 					};
 					C63DC7ED618F279D08DA5268 = {
-						DevelopmentTeam = "";
+						DevelopmentTeam = G7XSDHT6NG;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -440,7 +440,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = G7XSDHT6NG;
 				INFOPLIST_FILE = NexusCoreIOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -460,7 +460,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = G7XSDHT6NG;
 				INFOPLIST_FILE = NexusCoreIOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -479,7 +479,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = G7XSDHT6NG;
 				INFOPLIST_FILE = NexusCoreIOSTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -559,7 +559,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = G7XSDHT6NG;
 				INFOPLIST_FILE = NexusCoreIOSTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
