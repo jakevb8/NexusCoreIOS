@@ -136,6 +136,8 @@ class APIClient {
         do {
             let (data, response) = try await session.data(for: request)
             if let http = response as? HTTPURLResponse, !(200...299).contains(http.statusCode) {
+                let body = String(data: data, encoding: .utf8) ?? "<non-UTF8 body>"
+                print("[APIClient] HTTP \(http.statusCode) \(request.httpMethod ?? "") \(request.url?.path ?? "") — \(body)")
                 let msg = (try? decoder.decode(APIErrorResponse.self, from: data))?.message
                 throw APIError.httpError(http.statusCode, msg)
             }
@@ -145,11 +147,31 @@ class APIClient {
             do {
                 return try decoder.decode(T.self, from: data)
             } catch {
+                let body = String(data: data, encoding: .utf8) ?? "<non-UTF8 body>"
+                print("[APIClient] Decode error for \(T.self) from \(request.url?.path ?? "")")
+                print("[APIClient] Response body: \(body)")
+                if let de = error as? DecodingError {
+                    switch de {
+                    case .keyNotFound(let key, let ctx):
+                        print("[APIClient] Missing key '\(key.stringValue)' — \(ctx.debugDescription)")
+                    case .typeMismatch(let type, let ctx):
+                        print("[APIClient] Type mismatch (\(type)) — \(ctx.debugDescription)")
+                    case .valueNotFound(let type, let ctx):
+                        print("[APIClient] Value not found (\(type)) — \(ctx.debugDescription)")
+                    case .dataCorrupted(let ctx):
+                        print("[APIClient] Data corrupted — \(ctx.debugDescription)")
+                    @unknown default:
+                        print("[APIClient] Unknown decode error: \(error)")
+                    }
+                } else {
+                    print("[APIClient] Non-decoding error: \(error)")
+                }
                 throw APIError.decodingError(error)
             }
         } catch let err as APIError {
             throw err
         } catch {
+            print("[APIClient] Network error \(request.httpMethod ?? "") \(request.url?.absoluteString ?? ""): \(error)")
             throw APIError.networkError(error)
         }
     }
