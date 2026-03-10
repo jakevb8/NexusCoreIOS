@@ -50,9 +50,7 @@ struct SettingsView: View {
                 accountSection
                 backendSection
                 Spacer(minLength: 24)
-                NexusButton(title: "Sign Out", isOutlined: true) {
-                    authState.signOut()
-                }
+                NexusButton(title: "Sign Out", action: { authState.signOut() }, isOutlined: true)
                 dangerSection
             }
             .padding(16)
