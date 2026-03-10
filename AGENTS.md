@@ -15,6 +15,8 @@ NexusCoreIOS is the SwiftUI/iOS native client for NexusCore Resource Management 
 
 **Feature parity rule:** All UI-facing changes must be propagated to all client apps (Android, iOS, React Native) in the same session. Backend-only changes (migrations, business logic) do not require client updates.
 
+**Cross-repo check rule:** At the start of every task, read the relevant files in all sister repos to check whether an equivalent change has already been made there. If it has, apply the same change here. If this repo is ahead, propagate to the others. Never assume parity — always verify by reading the files.
+
 ## NEVER COMMIT SECRETS
 
 Files that must NEVER be committed:
