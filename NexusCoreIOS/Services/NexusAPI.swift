@@ -6,7 +6,9 @@ struct NexusAPI {
         try await APIClient.shared.get("/auth/me")
     }
 
-    static func register(_ request: RegisterRequest) async throws -> AuthUser {
+    // POST /auth/register — response body omits the nested organization object,
+    // so we discard it. OnboardingView navigates to PendingApproval on success.
+    static func register(_ request: RegisterRequest) async throws {
         try await APIClient.shared.post("/auth/register", body: request)
     }
 

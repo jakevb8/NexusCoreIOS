@@ -109,7 +109,7 @@ struct OnboardingView: View {
                         ? nil
                         : displayName.trimmingCharacters(in: .whitespaces)
                 )
-                _ = try await NexusAPI.register(req)
+                try await NexusAPI.register(req)
                 await MainActor.run { navigateToPending = true }
             } catch {
                 await MainActor.run {

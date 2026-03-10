@@ -73,6 +73,13 @@ class APIClient {
         return try await perform(req)
     }
 
+    /// POST that discards the response body (treats any 2xx as success).
+    func post<B: Encodable>(_ path: String, body: B) async throws {
+        let data = try JSONEncoder().encode(body)
+        let req = try await makeRequest(path: path, method: "POST", body: data)
+        let _: EmptyResponse = try await perform(req)
+    }
+
     func put<B: Encodable, T: Decodable>(_ path: String, body: B) async throws -> T {
         let data = try JSONEncoder().encode(body)
         let req = try await makeRequest(path: path, method: "PUT", body: data)
