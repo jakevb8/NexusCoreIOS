@@ -229,6 +229,8 @@ struct AssetsView: View {
 
     private func performImport(_ url: URL) async {
         do {
+            let didAccess = url.startAccessingSecurityScopedResource()
+            defer { if didAccess { url.stopAccessingSecurityScopedResource() } }
             let data = try Data(contentsOf: url)
             let result = try await NexusAPI.importCsv(data: data, fileName: url.lastPathComponent)
             await MainActor.run { importResult = result }
