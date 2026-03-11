@@ -244,21 +244,26 @@ struct AssetsView: View {
 
     private func downloadSample() async {
         let csv = "Name,SKU,Description,Status\nLaptop,LAP-001,MacBook Pro 14,AVAILABLE\nMonitor,MON-001,Dell 27\" 4K,IN_USE\n"
-        guard let docsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+        guard let docsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first,
+              let data = csv.data(using: .utf8) else { return }
         let fileURL = docsURL.appendingPathComponent("nexuscore_sample.csv")
-        guard let data = csv.data(using: .utf8) else { return }
         do {
-            try data.write(to: fileURL, options: .atomic)
+            // Use [] (no .atomic) to avoid temp-file rename failures in the sandbox
+            try data.write(to: fileURL, options: [])
         } catch {
             await MainActor.run { self.error = error.localizedDescription }
             return
         }
         await MainActor.run {
             let av = UIActivityViewController(activityItems: [fileURL], applicationActivities: nil)
-            if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-               let vc = scene.windows.first?.rootViewController {
-                vc.present(av, animated: true)
+            guard let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                  let root = scene.windows.first?.rootViewController else { return }
+            // Walk up to the topmost presented controller so we don't double-present
+            var presenter: UIViewController = root
+            while let presented = presenter.presentedViewController {
+                presenter = presented
             }
+            presenter.present(av, animated: true)
         }
     }
 }
