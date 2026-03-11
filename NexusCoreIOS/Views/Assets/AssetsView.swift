@@ -243,11 +243,18 @@ struct AssetsView: View {
     }
 
     private func downloadSample() async {
+        let csv = "Name,SKU,Description,Status\nLaptop,LAP-001,MacBook Pro 14,AVAILABLE\nMonitor,MON-001,Dell 27\" 4K,IN_USE\n"
+        guard let docsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+        let fileURL = docsURL.appendingPathComponent("nexuscore_sample.csv")
+        guard let data = csv.data(using: .utf8) else { return }
+        do {
+            try data.write(to: fileURL, options: .atomic)
+        } catch {
+            await MainActor.run { self.error = error.localizedDescription }
+            return
+        }
         await MainActor.run {
-            let csv = "Name,SKU,Description,Status\nLaptop,LAP-001,MacBook Pro 14,AVAILABLE\nMonitor,MON-001,Dell 27\" 4K,IN_USE\n"
-            let tmpURL = FileManager.default.temporaryDirectory.appendingPathComponent("nexuscore_sample.csv")
-            try? csv.data(using: .utf8)?.write(to: tmpURL)
-            let av = UIActivityViewController(activityItems: [tmpURL], applicationActivities: nil)
+            let av = UIActivityViewController(activityItems: [fileURL], applicationActivities: nil)
             if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
                let vc = scene.windows.first?.rootViewController {
                 vc.present(av, animated: true)
