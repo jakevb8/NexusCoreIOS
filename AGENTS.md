@@ -12,6 +12,7 @@ NexusCoreIOS is the SwiftUI/iOS native client for NexusCore Resource Management 
 | NexusCoreDotNet  | `/Users/jake/projects/NexusCoreDotNet`  | `jakevb8/NexusCoreDotNet`  | ASP.NET Core 8 Razor Pages fullstack                    |
 | NexusCoreAndroid | `/Users/jake/projects/NexusCoreAndroid` | `jakevb8/NexusCoreAndroid` | Jetpack Compose Android client                          |
 | NexusCoreReact   | `/Users/jake/projects/NexusCoreReact`   | `jakevb8/NexusCoreReact`   | Expo React Native cross-platform client                 |
+| NexusCoreAngular | `/Users/jake/projects/NexusCoreAngular` | `jakevb8/NexusCoreAngular` | Angular 21 web client                                   |
 
 **Feature parity rule:** All UI-facing changes must be propagated to all client apps (Android, iOS, React Native) in the same session. Backend-only changes (migrations, business logic) do not require client updates.
 
