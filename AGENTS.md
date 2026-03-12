@@ -108,8 +108,6 @@ NexusCoreIOS/
 │       │   └── TeamView.swift
 │       ├── Reports/
 │       │   └── ReportsView.swift
-│       ├── Events/
-│       │   └── EventsView.swift
 │       └── Settings/
 │           └── SettingsView.swift
 └── NexusCoreIOSTests/
@@ -132,7 +130,7 @@ xcodebuild test \
 - `AssetStatus` raw values, display names, colors, `CaseIterable` count, `Decodable`
 - `Role` raw values and `CaseIterable` count
 - `BackendChoice` base URLs and labels
-- `PaginatedEvents` resolving JS meta vs .NET flat fields and empty defaults
+- `PaginatedEvents` resolving JS meta vs .NET flat fields and empty defaults (now removed — Events screen deleted)
 - `KafkaEvent` JSON decoding
 - `Asset` JSON decoding
 
@@ -167,12 +165,11 @@ In `project.yml` (and regenerated `Info.plist`):
 | Login        | Google sign-in, backend selector (JS vs .NET), persisted choice                                                                              |
 | Onboarding   | Display name + org name, POST /auth/register                                                                                                 |
 | Pending      | Pending approval message, sign out                                                                                                           |
-| Dashboard    | Navigation cards to Assets, Team, Reports, Events, Settings                                                                                  |
+| Dashboard    | Navigation cards to Assets, Team, Reports, Settings                                                                                  |
 | Assets       | List with search + pagination, create/edit/delete (manager only), CSV import (.fileImporter), CSV sample download (UIActivityViewController) |
 | Asset Detail | Name, SKU, description, status chip selector, assignedTo                                                                                     |
 | Team         | List members, invite by email (sheet), copy-link fallback, remove member, change role                                                        |
 | Reports      | Total assets, utilization %, assets-by-status bar chart                                                                                      |
-| Events       | Paginated Kafka asset status change history (asset name, old/new status, timestamp)                                                          |
 | Settings     | Account info, backend picker, sign out                                                                                                       |
 
 ## Common Pitfalls

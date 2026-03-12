@@ -9,7 +9,6 @@ SwiftUI iOS client for [NexusCore](https://github.com/jakevb8/NexusCore) — a m
 - Asset management: list, search, create, edit, delete, CSV import, sample CSV download
 - Team management: invite members by email, copy-link fallback, remove members, change roles
 - Reports: utilization rate and assets-by-status breakdown
-- Events: paginated Kafka asset status change history with auto-refresh
 - Settings: account info, backend picker, sign out
 - Full RBAC support (`SUPERADMIN > ORG_MANAGER > ASSET_MANAGER > VIEWER`)
 

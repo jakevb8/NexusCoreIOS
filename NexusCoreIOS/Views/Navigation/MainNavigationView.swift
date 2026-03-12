@@ -17,8 +17,6 @@ struct MainNavigationView: View {
                         TeamView()
                     case .reports:
                         ReportsView()
-                    case .events:
-                        EventsView()
                     case .settings:
                         SettingsView(path: $path)
                     }
@@ -33,6 +31,5 @@ enum AppRoute: Hashable {
     case assetDetail(String?)
     case team
     case reports
-    case events
     case settings
 }
